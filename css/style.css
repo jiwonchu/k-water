@@ -494,7 +494,27 @@ body {
   background-size: cover;
 }
 
-.about .inner {}
+.about::after{
+  content: '';
+  position: absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height: 161px;
+  background: url('../images/about_bg02.png')center;
+
+  animation: about_bg02 10s infinite; 
+}
+@keyframes about_bg02{
+    0% {background-position: center center;}
+    25% {background-position: 70% center;}
+    50% {background-position: center center;}
+    75% {background-position: 70% center;}
+    100% {background-position: center center;}
+}
+.about .inner {
+  z-index: 1;
+}
 
 .about-box {
   float: left;
@@ -839,7 +859,10 @@ margin-right: 15px;
 
 
 }
-
+.sns-icon-wrap a:hover{
+  transform: rotateY(360deg);
+  transition: transform 0.5s;
+}
 
 
 .sns-icon-yt {
@@ -906,13 +929,193 @@ padding: 40px;
 }
 
 .service-center{
+  position: relative;
   float: left;
   width: calc(100% - 46.4% - 3.56%);
   height: 100%;
 
-  padding: 40px;
+  /* padding: 40px; */
+ /* border :2px solid #fff; */
+
+ 
+}
+.service-top{
+  height: 45.5%;
+  
+  border: 2px solid #fff;
+  border-top: 3px solid #fff;  
+  padding: 30px; 
+}
+.service-link-list{
+  display: table;
+  table-layout: fixed;
+  /* border-right: 1px dashed #fff; */
+  width:100%;
+  height: 100%;
+  /* margin-top: 30px; */
+}
+.service-link-list li{
+display: table-cell;
+width:25%;
+height: 100%;
+border-right:1px dashed rgba(255,255,255,0.6);
+}
+.service-link-list li:last-child{
+  border-right: none;
+}
+
+.service-link-list li a{
+  display: block;
+
+height: 100%;
+text-align: center;
+padding-top: 20px;
+}
+.service-link-list li a img{
+ /* transition: all 3.0s; */
+width:43px;
+height: 40px;
+}
+.service-link-list li a:hover img{
+
+ animation-name: move,service-icon-ani;
+ animation-duration:2.0s;
+ animation-iteration-count: infinite;
+ animation-timing-function: ease-in-out;
+ /* animation-timing-function: cubic-bezier(1,0,0.8,1); */
+                /* 이름          시간   왜곡현상   얼마있다 할건가 얼마나할건가 */
 
 }
+@keyframes move{
+from{
+  top:0;
+}
+to{
+  top:300px;
+}
+}
+@keyframes service-icon-ani{
+ 0%{
+  transform: translateY(0px);
+}
+25%{
+  transform: translateY(-5px);
+}
+ 50%{
+  transform: translateY(0px);
+ }
+ 75%{
+  transform:translateY(-5px);
+ }
+
+
+ 100%{
+  transform: translateY(0px);
+ }}
+
+
+
+.service-link-list li a span{
+  display: block;
+  text-align: center;
+  color: #fff;
+font-size: 18px;
+font-weight: 200;
+}
+ .service-bottom{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 48.8%;
+}
+
+  .service-info{
+    float:left;
+    height: 100%;
+    width:48.57%;
+    border:2px solid #fff;
+    padding: 20px 30px;
+  }
+  .service-cs{
+  float: right;
+  height: 100%;
+  width:48.57%;
+  border:2px solid #fff;
+  background: rgba(28, 87, 154, 0.6);
+  
+  }
+
+.service-cs strong{
+  display: block;
+  color: #fff;
+  font-size: 23px;
+  font-weight: 700;
+  margin-top: 60px;
+  text-align: center;
+
+}
+.service-cs a{
+  display: block;
+  color:#fff;
+    font-size: 34.5px;
+font-weight: 400;
+
+text-align: center;
+}
+.service-cs a:hover{
+  text-decoration: underline;
+}
+  .service-info-top{
+    padding-bottom: 14px;
+border-bottom: 1px dashed #fff;
+  }
+  .service-info-top a{
+font-size: 20px;
+color: #fff;
+font-weight: 300;
+  }
+  .service-info-top a:hover{
+    text-decoration: underline;
+  }
+  .service-info-top a img{
+margin-right: 15px;
+  }
+  .service-info-bottom{
+
+margin-top: 25px;
+  }
+  .service-info-bottom strong{
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+    float: left;
+    margin: -15px 0;
+  }
+
+  .service-info-list{
+    float: right;
+  }
+  .service-info-list li {
+    padding: 15px;
+    padding-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #fff;
+  }
+  .service-info-list li:last-child {
+    border-bottom: 0;
+  }
+
+  .service-info-list li a{
+    font-size: 16px;
+    color: #fff;
+   
+   
+  }
+  .service-info-list li a:hover{
+   text-decoration: underline;
+   
+  }
 .service-right{
   float: left;
   width:23.2%;
